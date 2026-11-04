@@ -1,15 +1,23 @@
+import { motion, useReducedMotion } from "motion/react";
 import { useLocation } from "react-router";
 import { servicesContent } from "@/data/services";
-import "@/sections/styles/services.css";
+import "./styles/services.css";
 
 function Services() {
   const location = useLocation();
   const language = location.pathname.startsWith("/de") ? "de" : "en";
   const content = servicesContent[language];
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section className="services" id="services">
-      <div className="services__container">
+      <motion.div
+        className="services__container"
+        initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
         <h2 className="services__title">{content.mainTitle}</h2>
 
         <div className="services__grid">
@@ -20,7 +28,7 @@ function Services() {
             </article>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

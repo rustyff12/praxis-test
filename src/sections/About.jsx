@@ -1,15 +1,23 @@
+import { motion, useReducedMotion } from "motion/react";
 import { useLocation } from "react-router";
 import { aboutContent } from "@/data/about";
-import "@/sections/styles/about.css";
+import "./styles/about.css";
 
 function About() {
   const location = useLocation();
   const language = location.pathname.startsWith("/de") ? "de" : "en";
   const content = aboutContent[language];
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <section className="about" id="about">
-      <div className="about__container">
+      <motion.div
+        className="about__container"
+        initial={shouldReduceMotion ? false : { opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.7, ease: "easeOut" }}
+      >
         <div className="about__image-wrapper">
           <img
             className="about__image"
@@ -28,7 +36,7 @@ function About() {
             </p>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
