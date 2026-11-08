@@ -33,6 +33,18 @@
   color: var(--color-black);
 }
 
+.service-card__icon {
+  display: block;
+  width: 3.5rem;
+  height: 3.5rem;
+  object-fit: contain;
+  margin: 0 auto 1.25rem;
+}
+
+.service-card__title {
+  text-align: center;
+}
+
 /* Desktop */
 
 @media (min-width: 1024px) {
