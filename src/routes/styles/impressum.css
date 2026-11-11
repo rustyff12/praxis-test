@@ -1,0 +1,75 @@
+.impressum {
+  flex: 1;
+  padding: 5rem 1.5rem;
+  background-color: var(--color-white);
+}
+
+.impressum__container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.impressum__title {
+  margin-bottom: 3.5rem;
+  color: var(--color-black);
+}
+
+/* Content sections */
+
+.impressum__section {
+  margin-bottom: 2.5rem;
+}
+
+.impressum__section h2 {
+  margin-bottom: 1rem;
+  color: var(--color-primary);
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.impressum__section p {
+  margin-bottom: 0.35rem;
+  line-height: 1.7;
+}
+
+.impressum__section strong {
+  font-weight: 600;
+}
+
+/* Links */
+
+.impressum__section a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+  transition: opacity 0.2s ease;
+}
+
+.impressum__section a:hover {
+  opacity: 0.7;
+}
+
+.impressum__section a:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+/* Larger screens */
+
+@media (min-width: 1024px) {
+  .impressum {
+    padding: 6rem 2rem;
+  }
+
+  .impressum__title {
+    margin-bottom: 4rem;
+  }
+
+  .impressum__section {
+    margin-bottom: 3rem;
+  }
+}
